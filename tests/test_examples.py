@@ -24,6 +24,17 @@ def test_duplicate_example():
         allocate_water_filling(5, dup_entities)
 
 
+def test_tuple_only():
+    """Test tuple isntead of named tuple"""
+    examples = [tuple(x) for x in EXAMPLES]
+    all_mins = sum([x[1] for x in examples])
+    target = all_mins - 5
+    output = allocate_water_filling(target, examples, incr_val=0.01)
+    assert len(output) == 5
+    total = sum([output[x] for x in output])
+    assert total == all_mins
+
+
 def test_water_filling_min_values():
     """Test min values are all used"""
     all_mins = sum([x.min_val for x in EXAMPLES])

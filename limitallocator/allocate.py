@@ -18,7 +18,7 @@ def allocate_mins(entities: list[EntityDetails]) -> dict[str, float]:
     """Allocate target amoungst all entities"""
 
     # Check inputs
-    if contains_duplicates([x.name for x in entities]):
+    if contains_duplicates([x[0] for x in entities]):
         msg = "Duplicate name in entities"
         raise ValueError(msg)
 
@@ -35,7 +35,7 @@ def allocate_proportional(
     """Allocate target amoungst all entities"""
 
     # Cannot allocate more then combined maximums
-    max_of_maxes = sum([x.max_val for x in entities])
+    max_of_maxes = sum([x[2] for x in entities])
     if target > max_of_maxes:
         target = max_of_maxes
 
@@ -64,7 +64,7 @@ def allocate_water_filling(
     """Allocate target amoungst all entities"""
 
     # Cannot allocate more then combined maximums
-    max_of_maxes = sum([x.max_val for x in entities])
+    max_of_maxes = sum([x[2] for x in entities])
     if target > max_of_maxes:
         target = max_of_maxes
 
@@ -77,7 +77,7 @@ def allocate_water_filling(
     if available <= 0:
         return output  # Allocation exhaused
 
-    waterline = min([x.min_val for x in entities])
+    waterline = min([x[1] for x in entities])
     while available > 0:
         waterline += incr_val
         for name, min_val, max_val in entities:

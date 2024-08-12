@@ -5,13 +5,14 @@ Allocate power limits amoungst entities
 ## Example
 
 ```python
-from limitallocator import EntityDetails, allocate_water_filling
+from limitallocator import allocate_water_filling
 
 
 EXAMPLES = [
-    EntityDetails("A", 5.0, 5.0),
-    EntityDetails("B", 1.5, 3.0),
-    EntityDetails("C", 1.5, 10.0),
+    # name, min value, max value
+    ("A", 5.0, 5.0),
+    ("B", 1.5, 3.0),
+    ("C", 1.5, 10.0),
 ]
 
 target = 15
