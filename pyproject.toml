@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "limitallocater"
+name = "limitallocator"
 authors = [{ name = "Alex Guinman", email = "alex@guinman.id.au" }]
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -25,9 +25,6 @@ test = ["ruff", "pytest >=2.7.3", "pytest-cov", "mypy"]
 
 [project.urls]
 Source = "https://github.com/aguinane/Limit-Allocator/"
-
-[tool.isort]
-profile = "black"
 
 [tool.pytest.ini_options]
 addopts = "-ra --failed-first --showlocals --durations=3 --cov=limitallocator"
